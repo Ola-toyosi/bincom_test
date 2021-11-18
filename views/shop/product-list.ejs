@@ -1,0 +1,40 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/polling_unit.css">
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+
+            <main>
+                <% if (polls.length > 0) { %>
+                    <div class="grid">
+                        <% for (let polling_unit of polls) { %>
+                            <article class="card product-item">
+                                <header class="card__header">
+                                    <h1 class="product__title">
+                                        <%= polling_unit.polling_unit_name %>
+                                    </h1>
+                                </header>
+                                <!-- <div class="card__image">
+                                    <img src="<%= polling_unit.imageUrl %>" alt="<%= polling_unit.title %>">
+                                </div> -->
+                                <div class="card__content">
+                                    <h2 class="product__price">
+                                        <%= polling_unit.polling_unit_number %>
+                                    </h2>
+                                    <p class="product__description">
+                                        <%= polling_unit.polling_unit_description %>
+                                    </p>
+                                </div>
+                                <div class="card__actions">
+                                    <a href="/polls/<%= polling_unit.uniqueid %>" class="btn">Details</a>
+                                    <!-- <%- include('../includes/add-to-cart.ejs', {polling_unit: polling_unit}) %> -->
+                                </div>
+                            </article>
+                            <% } %>
+                    </div>
+                    <% } else { %>
+                        <h1>No Products Found!</h1>
+                        <% } %>
+            </main>
+            <%- include('../includes/end.ejs') %>

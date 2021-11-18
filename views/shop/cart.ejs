@@ -1,0 +1,45 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/cart.css">
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+
+        <main>
+
+            <form class="product-form" method="GET">
+                <div class="card__actions">
+                    <a href="/polls/<%= polling_unit.uniqueid %>" class="btn">Fetch Results</a>
+                </div>
+
+                <!-- <script type="text/javascript">
+                    function getOption() {
+                        selectElement = 
+                                document.querySelector('lga-dropdown');
+                        lga_id = selectElement.value
+                        document.querySelector('.product-form').lga_id = lga_id ;
+                    }
+                </script> -->
+
+                <div class="form-control">                  
+                    <label for="LGA">Local Government Area</label>
+                    <select class="form-control" id="lga-dropdown">
+                    <option value="">Select LGA</option> 
+                    <button class="btn" type="submit">Fetch Result</button>   
+                    <% if(pollUnits.length){
+                    for(var i = 0; i< pollUnits.length; i++) {%> 
+                    <option value="<%= pollUnits[i].lga_id%>">
+                    <%= pollUnits[i].lga_name%>
+                    <% } } %>
+                    </option>
+                    <hr>   
+                </div>  
+
+
+    
+                    
+                
+            </form>
+           
+        </main>
+        <%- include('../includes/end.ejs') %>
